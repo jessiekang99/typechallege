@@ -1,0 +1,83 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  font-family: "chorine-large", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 130px;
+  color: palevioletred;
+}
+
+.card {
+  background-color: #eeff00;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 400px;
+  margin-top: 1px;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #002aff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: #eeff00;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 400px;
+  margin-bottom: 15px;
+}
+
+.letter {
+  font-size: 30px;
+  font-weight: bold;
+  color: #9ca3af;
+  transition: color 0.3s ease;
+}
+
+.letter:hover {
+  color: #6b7280;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  gap: 4px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.keyboard span {
+  font-size: 30px;
+  color: #9ca3af;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.keyboard span:hover {
+  color: #6b7280;
+}
+
+.instruction {
+  text-align: center;
+  margin-top: 16px;
+  color: #6b7280;
+}

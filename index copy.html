@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changing Letters</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/jem6afe.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>
+        Typing Challenge
+    </h1>
+    <div class="card">
+        <div class="instruction">
+        </div>
+        <div class="flex items-center justify-center space-x-2">
+            <span class="letter" data-letter="T">T</span>
+            <span class="letter" data-letter="y">y</span>
+            <span class="letter" data-letter="p">p</span>
+            <span class="letter" data-letter="e">e</span>
+            <span class="letter" data-letter=".">.</span>
+            <span class="letter" data-letter=".">.</span>
+            <span class="letter" data-letter=".">.</span>
+        </div>
+
+        <div class="keyboard">
+            <span class="letter" data-letter="q">q</span>
+            <span class="letter" data-letter="w">w</span>
+            <span class="letter" data-letter="e">e</span>
+            <span class="letter" data-letter="r">r</span>
+            <span class="letter" data-letter="t">t</span>
+            <span class="letter" data-letter="y">y</span>
+            <span class="letter" data-letter="u">u</span>
+            <span class="letter" data-letter="i">i</span>
+            <span class="letter" data-letter="o">o</span>
+            <span class="letter" data-letter="p">p</span>
+            <span class="letter" data-letter="a">a</span>
+            <span class="letter" data-letter="s">s</span>
+            <span class="letter" data-letter="d">d</span>
+            <span class="letter" data-letter="f">f</span>
+            <span class="letter" data-letter="g">g</span>
+            <span class="letter" data-letter="h">h</span>
+            <span class="letter" data-letter="j">j</span>
+            <span class="letter" data-letter="k">k</span>
+            <span class="letter" data-letter="l">l</span>
+            <span class="letter" data-letter="z">z</span>
+            <span class="letter" data-letter="x">x</span>
+            <span class="letter" data-letter="c">c</span>
+            <span class="letter" data-letter="v">v</span>
+            <span class="letter" data-letter="b">b</span>
+            <span class="letter" data-letter="n">n</span>
+            <span class="letter" data-letter="m">m</span>
+        </div>
+        <div class="keyboard">
+            <span class="letter" data-letter="1">1</span>
+            <span class="letter" data-letter="2">2</span>
+            <span class="letter" data-letter="3">3</span>
+            <span class="letter" data-letter="4">4</span>
+            <span class="letter" data-letter="5">5</span>
+            <span class="letter" data-letter="6">6</span>
+            <span class="letter" data-letter="7">7</span>
+            <span class="letter" data-letter="8">8</span>
+            <span class="letter" data-letter="9">9</span>
+            <span class="letter" data-letter="0">0</span>
+        </div>
+        <div class="keyboard">
+            <span class="letter" data-letter="-">-</span>
+            <span class="letter" data-letter="=">=</span>
+            <span class="letter" data-letter="[">[</span>
+            <span class="letter" data-letter="]">]</span>
+            <span class="letter" data-letter="\">\\</span>
+            <span class="letter" data-letter=";">>;</span>
+            <span class="letter" data-letter="'">'</span>
+            <span class="letter" data-letter=",">,</span>
+            <span class="letter" data-letter=".">.</span>
+            <span class="letter" data-letter="/">/</span>
+        </div>
+        <div class="keyboard">
+            <span class="letter" data-letter="`">`</span>
+            <span class="letter" data-letter="!">!</span>
+            <span class="letter" data-letter="@">@</span>
+            <span class="letter" data-letter="#">#</span>
+            <span class="letter" data-letter="$">$</span>
+            <span class="letter" data-letter="%">%</span>
+            <span class="letter" data-letter="^">^</span>
+            <span class="letter" data-letter="&">&</span>
+            <span class="letter" data-letter="*">*</span>
+            <span class="letter" data-letter="(">(</span>
+            <span class="letter" data-letter=")">)</span>
+            <span class="letter" data-letter="_">_</span>
+            <span class="letter" data-letter="+">+</span>
+        </div>
+    </div>
+
+    <button id="newButton">NEW</button>
+</div>
+
+<script>
+    const letters = document.querySelectorAll('.letter');
+    const newButton = document.getElementById('newButton');
+    const texts = [
+        "Hello my name is Jessie Kang. Nice to meet you.Have a nice summer.",
+        "Your eyes have a little green in them.",
+        "My dog's name is Tico.",
+        "I hope your days are full of sunshine",
+        "Coding is so fun.",
+        "Clover blooms in the fields. Spring breaks loose, the time is near.",
+        "Karma is the guy on the screen coming straight home to me.",
+        "I love Korea.",
+        "How is your day going?",
+        "All clouds have souls.",
+        "This one is really funny. It makes no sense, and it's random, which makes it funny.",
+        "Roses are red, violets are blue.",
+        "My favourite fruit is pineapple."
+    ];
+    let currentIndex = 0;
+
+    function setText(text) {
+        currentIndex = 0;
+        for (let i = 0; i < letters.length; i++) {
+            letters[i].textContent = text[i] || '';
+            letters[i].dataset.letter = text[i] || '';
+            letters[i].style.color = '#9ca3af';
+        }
+    }
+
+    document.addEventListener('keydown', (event) => {
+        const pressedKey = event.key.toLowerCase();
+        if (pressedKey === 'backspace') {
+            if (currentIndex > 0) {
+                currentIndex--;
+                letters[currentIndex].style.color = '#9ca3af';
+            }
+        } else {
+            if (currentIndex < letters.length && letters[currentIndex].dataset.letter.toLowerCase() === pressedKey) {
+                letters[currentIndex].style.color = '#ff0000';
+                currentIndex++;
+            }
+        }
+    });
+
+    newButton.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * texts.length);
+        setText(texts[randomIndex]);
+    });
+</script>
+
+</body>
+</html>
